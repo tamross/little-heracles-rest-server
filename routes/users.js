@@ -155,6 +155,7 @@ router.route('/login')
 
 router.route('/logout')
 .get(function(req, res) {
+  console.log("logging out");
     req.logout();
   res.status(200).json({
     status: 'Bye!'
