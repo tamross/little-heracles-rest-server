@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var authenticate = require('./authenticate');
+var cors = require('cors');
 
 var config = require('./config');
 
@@ -22,6 +23,14 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+
+/* Remove the error
+XMLHttpRequest cannot load https://localhost:3443/users/login. 
+Response to preflight request doesn't pass access control check: 
+No 'Access-Control-Allow-Origin' header is present on the requested resource. 
+Origin 'http://localhost:3001' is therefore not allowed access.
+*/
+app.use(cors());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
