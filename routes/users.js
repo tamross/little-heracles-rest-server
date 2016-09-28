@@ -62,7 +62,7 @@ router.route('/')
     });
 });
 
-router.route('/:userId')
+router.route('allUsers/:userId')
 /* Get a specific user */
 .get(Verify.verifyOrdinaryUser, function(req, res, next) {
       User.find({'_id':req.params.userId}, function (err, user) {

@@ -13,11 +13,11 @@ var resultSchema = new Schema({
 	event: {
 		type: mongoose.Schema.Types.ObjectId,
         ref: 'Event'
-	}
+	},
 	competition: {
 		type: mongoose.Schema.Types.ObjectId,
         ref: 'Competiton'
-	}
+	},
 }, options);
 
 var Result = mongoose.model('Result', resultSchema);

@@ -3,6 +3,6 @@ applications:
   memory: 512M
   instances: 1
   domain: au-syd.bluemix.net
-  name: little-heracles-server
-  host: little-heracles-server
+  name: little-heracles
+  host: little-heracles
   disk_quota: 1024M

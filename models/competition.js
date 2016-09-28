@@ -4,15 +4,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var comptitionSchema = new Schema({
+var competitionSchema = new Schema({
 	date: {
 		type: Date,
 		required: true
-	}
-	events: {
-		[type: mongoose.Schema.Types.ObjectId,
-        ref: 'Event']
-	}
+	},
+	events: [{type: mongoose.Schema.Types.ObjectId, ref: 'Event'}]
 });
 
 
