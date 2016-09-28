@@ -111,6 +111,16 @@ router.route('/athletes/ageGroup/:ageGroup')
       });
 });
 
+router.route('/parents')
+/* Get all athletes */
+.get(Verify.verifyOrdinaryUser, Verify.verifyClubOfficial, function(req, res, next) {
+      console.log("Get all parents");
+      User.find({'kind':'PARENT'}, function (err, user) {
+          if (err) return next(err);
+          res.json(user);
+      });
+});
+
 router.route('/login')
 .post(function(req, res, next) {
   console.log("login user");
