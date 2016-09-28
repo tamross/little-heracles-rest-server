@@ -18,7 +18,7 @@ var eventSchema = new Schema({
 	name: {
 		type: String,
 		required: true
-	}
+	},
 	ageGroup: {
 		type: String,
 		required: true

@@ -7,8 +7,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
 
-// var userSchema = new Schema({
-
 var User = new Schema({	
     username: String,
     password: String,
@@ -42,7 +40,5 @@ var User = new Schema({
 	personalBests: [{type: mongoose.Schema.Types.ObjectId,ref: 'Result'}]
 });
 	
-// var User = mongoose.model('User', userSchema);
 User.plugin(passportLocalMongoose);
 module.exports = mongoose.model('User', User);
-// module.exports = User;

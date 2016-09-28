@@ -6,10 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var authenticate = require('./authenticate');
 var cors = require('cors');
 
 var config = require('./config');
+
+var LocalStrategy = require('passport-local').Strategy;
 
 mongoose.connect(config.mongoUrl);
 var db = mongoose.connection;
@@ -43,7 +44,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// passport config
+var User = require('./models/users');
 app.use(passport.initialize());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -90,5 +96,8 @@ app.all('*', function(req, res, next){
 
  res.redirect('https://'+req.hostname+':'+app.get('secPort')+req.url);
 });
+
+var boot = require('./boot');
+boot(app,db);
 
 module.exports = app;

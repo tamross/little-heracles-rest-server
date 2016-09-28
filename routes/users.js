@@ -16,17 +16,6 @@ router.route('/')
 
 .post(Verify.verifyOrdinaryUser, Verify.verifyClubOfficial, function(req, res, next) {
     console.log("Create new user");
-    // User.create(req.body, function (err, user) {
-    //     if (err) throw err;
-    //     console.log('User created!');
-    //     var id = user._id;
-    //     res.writeHead(200, {
-    //         'Content-Type': 'text/plain'
-    //     });
-
-    //     res.end('Added the user with id: ' + id);
-    // });
-
     User.register(new User({ username : req.body.username }),
         req.body.password, function(err, user) {
         if (err) {
