@@ -21,17 +21,13 @@ compRouter.route('/')
         if (err) throw err;
         console.log('Competition created!');
         var id = comp._id;
-        res.writeHead(200, {
-            'Content-Type': 'text/plain'
-        });
-
-        res.end('Added the Competition with id: ' + id);
+        res.json({"id":id});
     });
 });
 
 compRouter.route('/:id')
 .get(Verify.verifyOrdinaryUser, function (req, res, next) {
-    Competition.find({'_id':id}).exec(function (err, comp) {
+    Competition.findOne({'_id':req.params.id}).populate('events').exec(function (err, comp) {
         if (err) return next(err);
         res.json(comp);
     });
