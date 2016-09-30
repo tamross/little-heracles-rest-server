@@ -18,37 +18,11 @@ var resultSchema = new Schema({
 		type: mongoose.Schema.Types.ObjectId,
         ref: 'Competiton'
 	},
+	distances: [Number], // Distance events typically give 3 attempts
+    bestDistance: Number
 }, options);
 
 var Result = mongoose.model('Result', resultSchema);
+var ClubRecord = mongoose.model('ClubRecord', resultSchema);
 
-// Times are in milliseconds. There may be multiple heats before the final race
-var TimedResult = Result.discriminator('TimedResult', new mongoose.Schema({
-	heatTimes: [Number], 
-    finalTime: Number 
-}, options));
-
-var DistanceResult = Result.discriminator('DistanceResult',new mongoose.Schema({
-    distances: [Number], // Distance events typically give 3 attempts
-    bestDistance: Number
-}, options));
-
-// High jumpers have three attempts at each height
-var highJumpAttemptSchema = new Shcema({
-	height: Number,
-	attemptOne: Boolean,
-	attemptTwo: Boolean,
-	attemptThree: Boolean
-});
-
-var HighJumpResult = Result.discriminator('HighJumpResult',new mongoose.Schema({
-    results: [highJumpAttemptSchema], // A record of all of their attempts
-    bestHeight: Number // The best height jump achieved in this competition
-}, options));
-
-module.exports = {
-	Result: Result,
-	TimedResult: TimedResult,
-	DistanceResult: DistanceResult,
-	HighJumpResult: HighJumpResult
-};
+module.exports = {Result: Result, ClubRecord: ClubRecord};

@@ -2,6 +2,7 @@
  */
 
 var mongoose = require('mongoose');
+// require('mongoose-moment')(mongoose);
 var Schema = mongoose.Schema;
 
 var competitionSchema = new Schema({
