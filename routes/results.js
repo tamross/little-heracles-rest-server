@@ -24,6 +24,15 @@ resultRouter.route('/')
         var id = result._id;
         res.json({"id":id});
     });
+})
+
+resultRouter.route('/:id')
+.get(Verify.verifyOrdinaryUser, function (req, res, next) {
+    Result.findOne({'_id':req.params.id}).populate('athlete').populate('event').populate('competition')
+    .exec(function (err, result) {
+        if (err) return next(err);
+        res.json(result);
+    });
 });
 
 module.exports = resultRouter;

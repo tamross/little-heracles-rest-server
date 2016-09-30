@@ -16,7 +16,7 @@ var resultSchema = new Schema({
 	},
 	competition: {
 		type: mongoose.Schema.Types.ObjectId,
-        ref: 'Competiton'
+        ref: 'Competition'
 	},
 	distances: [Number], // Distance events typically give 3 attempts
     bestDistance: Number
