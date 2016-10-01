@@ -12,49 +12,177 @@ var Events = require('./models/events');
     console.log("Creating events");
     Events.create([
         {
-            "kind": "TIMED",
-            "name": "100m Run",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u6"
         },
         {
-            "kind": "TIMED",
-            "name": "200m Run",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u6"
         },
         {
-            "kind": "TIMED",
-            "name": "400m Run",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u6"
         },
         {
-            "kind": "TIMED",
-            "name": "800m Run",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u6"
         },
         {
-            "kind": "TIMED",
-            "name": "1500m Run",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u6"
         },
         {
-            "kind": "TIMED",
-            "name": "800m Walk",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u7"
         },
         {
-            "kind": "TIMED",
-            "name": "1500m Walk",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u7"
         },
         {
-            "kind": "TIMED",
-            "name": "100m Hurdles",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u7"
         },
         {
-            "kind": "TIMED",
-            "name": "200m Hurdles",
-            "ageGroup": "u13"
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u7"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u7"
+        },{
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u8"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u8"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u8"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u8"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u8"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u9"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u9"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u9"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u9"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u9"
+        },{
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u9"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u10"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u10"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u10"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u10"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u11"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u11"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u11"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u11"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u11"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u12"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u12"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u12"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u12"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u12"
         },
         {
             "kind": "DISTANCE",
@@ -82,56 +210,6 @@ var Events = require('./models/events');
             "ageGroup": "u13"
         },
         {
-            "kind": "HIGHJUMP",
-            "name": "High Jump",
-            "ageGroup": "u13"
-        },
-        {
-            "kind": "TIMED",
-            "name": "100m Run",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "200m Run",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "400m Run",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "800m Run",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "1500m Run",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "800m Walk",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "1500m Walk",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "100m Hurdles",
-            "ageGroup": "u14"
-        },
-        {
-            "kind": "TIMED",
-            "name": "200m Hurdles",
-            "ageGroup": "u14"
-        },
-        {
             "kind": "DISTANCE",
             "name": "Discus",
             "ageGroup": "u14"
@@ -157,9 +235,79 @@ var Events = require('./models/events');
             "ageGroup": "u14"
         },
         {
-            "kind": "HIGHJUMP",
-            "name": "High Jump",
-            "ageGroup": "u14"
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u15"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u15"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u15"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u15"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u15"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u16"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u16"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u16"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u16"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u16"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Discus",
+            "ageGroup": "u17"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Shotput",
+            "ageGroup": "u17"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Javelin",
+            "ageGroup": "u17"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Long Jump",
+            "ageGroup": "u17"
+        },
+        {
+            "kind": "DISTANCE",
+            "name": "Triple Jump",
+            "ageGroup": "u17"
         }
     ], function(err, events) {
    if (err) throw (err);

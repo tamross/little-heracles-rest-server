@@ -16,6 +16,7 @@
     "moment": "^2.15.1",
     "mongoose": "^4.5.5",
     "mongoose-currency": "^0.2.0",
+    "mongoose-deep-populate": "^3.0.0",
     "mongoose-moment": "^0.1.1",
     "morgan": "~1.7.0",
     "passport": "^0.3.2",

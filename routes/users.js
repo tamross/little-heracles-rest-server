@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/users');
+var Event = require('../models/events');
 var Verify = require('./verify');
 
 /* GET all users */
@@ -95,7 +96,7 @@ router.route('/athletes')
 /* Get all athletes */
 .get(Verify.verifyOrdinaryUser, Verify.verifyClubOfficial, function(req, res, next) {
       console.log("Get all athletes");
-      User.find({'kind':'ATHLETE'}, function (err, user) {
+      User.find({'kind':'ATHLETE'}).exec(function (err, user) {
           if (err) return next(err);
           res.json(user);
       });
@@ -105,9 +106,27 @@ router.route('/athletes/ageGroup/:ageGroup')
 /* Get all athletes in an age group */
 .get(Verify.verifyOrdinaryUser, Verify.verifyClubOfficalOrAgeManagerOrParent, function(req, res, next) {
       console.log("Get athletes in age group " + req.params.ageGroup);
-      User.find({'kind':'ATHLETE','ageGroup':req.params.ageGroup}, function (err, user) {
+      User.find({'kind':'ATHLETE','ageGroup':req.params.ageGroup}).exec(function (err, user) {
           if (err) return next(err);
           res.json(user);
+      });
+});
+
+router.route('/athletes/personalBests/:athleteId')
+.get(Verify.verifyOrdinaryUser, function(req, res, next) {
+      console.log("Get personal bests for  " + req.params.athleteId);
+      User.find({_id: req.params.athleteId}).exec(function (err, user) {
+          if (err) return next(err);
+          res.json(user.personalBests);
+      });
+})
+
+.post(Verify.verifyOrdinaryUser, function(req, res, next) {
+      console.log("Set personal bests for  " + req.params.athleteId);
+      User.update({_id: req.params.athleteId}, {$set: {personalBests: req.body.personalBests}}, {upsert: true}, function (err, user) {
+          if (err) return next(err);
+          var newPbs = req.body.personalBests;
+            res.json(user.personalBests);
       });
 });
 

@@ -2,6 +2,7 @@
  */
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+// var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var options = {discriminatorKey: 'kind'};
 
@@ -21,6 +22,12 @@ var resultSchema = new Schema({
 	distances: [Number], // Distance events typically give 3 attempts
     bestDistance: Number
 }, options);
+
+// resultSchema.plugin(deepPopulate, {
+//   whitelist: [
+//     'event'
+//   ]
+// });
 
 var Result = mongoose.model('Result', resultSchema);
 var ClubRecord = mongoose.model('ClubRecord', resultSchema);

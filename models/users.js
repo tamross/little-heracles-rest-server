@@ -6,6 +6,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
+// var deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 var User = new Schema({	
     username: String,
@@ -37,8 +38,13 @@ var User = new Schema({
 	parents: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
 	ageGroup: String, // The age group they are in this season
 	athleteId: String, // Each athlete is assigned a special ID
-	personalBests: [{type: mongoose.Schema.Types.ObjectId,ref: 'Result'}]
+	personalBests: [{eventName: String, distance: Number}]
 });
 	
 User.plugin(passportLocalMongoose);
+// User.plugin(deepPopulate, {
+//   whitelist: [
+//     'personalBests'
+//   ]
+// });
 module.exports = mongoose.model('User', User);

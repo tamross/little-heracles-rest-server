@@ -13,7 +13,7 @@ clubRecordRouter.route('/')
 .get(Verify.verifyOrdinaryUser, function (req, res, next) {
     ClubRecord.find({}).exec(function (err, record) {
         if (err) return next(err);
-        res.json(event);
+        res.json(record);
     });
 })
 
@@ -25,14 +25,27 @@ clubRecordRouter.route('/')
         var id = result._id;
         res.json({"id":id});
     });
-})
+});
 
+clubRecordRouter.route('/:id')
 // Update an existing record with a new result.
 .put(Verify.verifyOrdinaryUser, Verify.verifyClubOfficial, function (req, res, next) {
-    ClubRecord.find().exec(function (err, record) {
-        if (err) return next(err);
-        res.json(event);
-    });
+    ClubRecord.findOne({'_id':req.params.id}, function (err, record){
+     if (err) {
+        res.send(422,'update failed');
+     } else {
+        //update fields
+        for (var field in ClubRecord.schema.paths) {
+           if ((field !== '_id') && (field !== '__v')) {
+              if (req.record[field] !== undefined) {
+                 record[field] = req.body[field];
+              }  
+           }  
+        }  
+        record.save();
+        res.send(422,'update succeeded');
+     }
+  });
 });
 
 module.exports = clubRecordRouter;
