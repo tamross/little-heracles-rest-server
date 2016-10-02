@@ -1,0 +1,17 @@
+<div class="container">  
+    <div class="row row-content">
+    	<h3>Register New Club Official</h3>
+        <form ng-submit="createCompetition()">
+            <div class="form-group">
+                <label class="sr-only" for="date">Date</label>
+                <input type="date" class="form-control input-sm" id="date" placeholder="Date" ng-model="competition.date" ng-required="true">
+            </div>
+            <div class="form-group" ng-repeat="validAgeGroup in validAgeGroups">
+                <label for="events">{{validAgeGroup}} Events</label>
+                <select multiple name="events" class="form-control input-sm" id="events" placeholder="Events" ng-model="$parent.competition.events[validAgeGroup]" ng-options="event.name for event in events | filter:{ageGroup:validAgeGroup}">
+                </select>
+            </div>
+            <button type="submit" class="btn btn-info btn-sm">Create</button>
+        </form>
+    </div>
+</div>

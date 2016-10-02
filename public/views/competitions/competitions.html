@@ -1,0 +1,29 @@
+<div class="container">  
+    <div class="row" ng-if="loggedIn && kind=='CLUBOFFICIAL'">
+        <div class="col-xs-12">
+            <ul>
+                <li><a ui-sref="app.competitionsCreate">Create a new Competition</a></li>
+                <li><a ui-sref="app.competitionsEdit">Edit an existing Competition</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row row-content" ng-show="showNextComp" ng-if="loggedIn">
+        <div class="col-xs-12">
+        <h3>Upcoming Competition: {{nextComp.date | date:'dd-MM-yyyy'}}</h3>
+        <a ui-sref="app.resultsEntry" class="btn btn-info" role="button" ng-if="loggedIn && (kind=='CLUBOFFICIAL' || kind=='AGEMANAGER' || kind=='PARENT')">
+        Record results for this competition</a>
+        <h4>Events</h4>
+        <div ng-repeat="event in (orderedEvents = (nextComp.events | orderBy: 'ageGroup'))">
+            <h4 ng-if="orderedEvents[$index-1].ageGroup !== event.ageGroup">{{event.ageGroup}}</h4>
+            <p>{{event.name}}</p>
+        </div>
+        </div>
+    </div>
+    <div class="row row-content">
+        <div class="col-xs-12">
+            <h3>Previous Competitions</h3>
+            <p>Coming soon...</p>
+            <!-- <a href="#">Show more - paged results??</a> -->
+        </div>
+    </div>
+</div>
