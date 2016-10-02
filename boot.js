@@ -6,7 +6,7 @@ var Events = require('./models/events');
 
  console.log("Booting");
 
-  Events.find({ kind: 'TIMED' }, function (err, events) {
+  Events.find({ kind: 'DISTANCE' }, function (err, events) {
 
   if (!events || events == '') {
     console.log("Creating events");
