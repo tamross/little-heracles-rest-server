@@ -63,10 +63,10 @@ router.route('/')
     });
 });
 
-router.route('allUsers/:userId')
+router.route('/allUsers/:userId')
 /* Get a specific user */
 .get(Verify.verifyOrdinaryUser, function(req, res, next) {
-      User.find({'_id':req.params.userId}, function (err, user) {
+      User.findOne({_id:req.params.userId}, function (err, user) {
           if (err) return next(err);
           res.json(user);
       });
@@ -113,19 +113,10 @@ router.route('/athletes/ageGroup/:ageGroup')
 });
 
 router.route('/athletes/personalBests/:athleteId')
-.get(Verify.verifyOrdinaryUser, function(req, res, next) {
-      console.log("Get personal bests for  " + req.params.athleteId);
-      User.find({_id: req.params.athleteId}).exec(function (err, user) {
-          if (err) return next(err);
-          res.json(user.personalBests);
-      });
-})
-
 .post(Verify.verifyOrdinaryUser, function(req, res, next) {
       console.log("Set personal bests for  " + req.params.athleteId);
       User.update({_id: req.params.athleteId}, {$set: {personalBests: req.body.personalBests}}, {upsert: true}, function (err, user) {
           if (err) return next(err);
-          var newPbs = req.body.personalBests;
             res.json(user.personalBests);
       });
 });
@@ -161,11 +152,13 @@ router.route('/login')
         
       var token = Verify.getToken(user);
       var kind = user.kind;
+      var id = user._id;
       res.status(200).json({
         status: 'Login successful!',
         success: true,
         token: token,
-        kind: kind
+        kind: kind,
+        id: id
       });
     });
   })(req,res,next);
